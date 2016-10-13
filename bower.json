@@ -1,0 +1,24 @@
+{
+	"name": "landing-pages",
+	"description": "",
+	"main": "index.js",
+	"authors": [
+		"Stu Kabakoff <stuart@compstak.com>"
+	],
+	"license": "ISC",
+	"moduleType": [],
+	"homepage": "",
+	"private": true,
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"common": "compstak/fed-common#f/new-landing-pages",
+		"ui": "compstak/fed-ui#f/new-landing-pages",
+		"services": "compstak/fed-services#~15.0.1"
+	}
+}

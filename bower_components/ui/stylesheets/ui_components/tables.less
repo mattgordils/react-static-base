@@ -1,0 +1,75 @@
+// Table Base
+// -------------------------
+
+table {
+  width: 100%;
+
+  thead, tr, th, td {
+    vertical-align: middle;
+  }
+
+tbody{
+    tr{
+      td{
+        padding-right: 20px;
+        &.lock{
+          svg{
+            fill : @light-blue;
+            height: 25px;
+            cursor : pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Simple Table
+// -------------------------
+
+table.simple_table{
+
+  td, th {
+    .type(@font-gotham-book, 13px , 0em);
+    border-bottom : 1px solid @off-white;
+    color : @purple;
+    box-sizing: border-box;
+    padding: 18px 10px 15px 0;
+    line-height: 1.5em;
+
+    > span {
+      padding-right: 15px;
+      .ellipsis();
+      overflow: visible;
+      @media @screen-smaller-than-1280 {
+        white-space: normal;
+      }
+    }
+
+    @media @screen-shorter-than-800 {
+      padding: 16px 10px 13px 0;
+    }
+
+    .icon {
+      height: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 12px;
+      margin-top: -10px;
+    }
+
+    .alt {
+      color: lighten(@purple,30%);
+    }
+
+  }
+
+  tfoot td {
+    border-bottom: none;
+  }
+
+}
+
+.empty_cell_placeholder {
+  color: lighten(@dark-blue, 60%);
+}

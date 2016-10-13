@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>CompStak Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% for (var i=0; i<o.htmlWebpackPlugin.files.chunks.app.css.length; i++) { %}
+		<link type="text/css" href="{%=o.htmlWebpackPlugin.files.chunks.app.css[i]%}" rel="stylesheet" media="all">
+	{% } %}
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+</head>
+
+<body>
+
+<div id="app-container" class="page-login">
+	<div class="throbber throbber_large processing_throbber" style="display: block;"></div>
+</div>
+
+<script src="{%= o.htmlWebpackPlugin.files.chunks.app.entry %}"></script>
+</body>
+
+</html>

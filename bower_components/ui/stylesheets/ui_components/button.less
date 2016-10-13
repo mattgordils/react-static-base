@@ -1,0 +1,721 @@
+@import '../ui_setup/mixins.less';
+@import '../ui_setup/vars_sizes.less';
+@import '../ui_setup/vars_colors.less';
+@import '../ui_setup/vars_typography.less';
+@import '../ui_setup/vars_media_queries.less';
+
+.button_divider {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  background: #fff;
+  .topRight(5px, 9px);
+  .size(1px; 30px);
+  background: #fff;
+  opacity: .3;
+}
+
+.button {
+  .transition(all 0.2s ease-in-out);
+  .user-select(none);
+  display: inline-block;
+  position: relative;
+  border: none;
+  border-radius: @border-radius-base;
+  background: @button-default-bg;
+  color: @button-default-color;
+  font: normal normal @button-font-weight @button-font-size-base/@button-height-base @button-font-base;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  height: @button-height-base;
+  padding: 0px 15px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    color: @button-default-color;
+    background: @light-blue;
+  }
+
+  &:active,
+  &.active {
+    .box-shadow(none);
+    background: lighten(@light-blue, 10%);
+  }
+
+  // Button icons
+  // --------------------------------------------------
+  > i {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    .transition(all 0.2s ease-in-out);
+  }
+
+  polygon, polyline, rect, path, circle {
+    .transition(all 0.2s ease-in-out);
+  }
+
+  // Button colors
+  // --------------------------------------------------
+
+  &.button_green {
+    background: @green;
+
+    &:hover {
+      background: darken(@green, 10%);
+    }
+
+    &:active {
+      background: lighten(@green, 10%);
+    }
+
+  }
+
+  &.button_gray {
+    background: @button-gray;
+    color: @dark-blue;
+
+    &:hover {
+      background: darken(@button-gray, 7%);
+      color: @dark-blue;
+    }
+
+    &:active {
+      background: darken(@button-gray, 2%);
+    }
+
+  }
+
+  &.button_light_gray {
+    background: lighten(@button-gray, 7%);
+    color: @dark-blue;
+
+    &:hover {
+      background: @light-blue;
+      color: #fff;
+    }
+
+    &:active {
+      background: lighten(@light-blue, 10%);
+      color: #fff;
+    }
+
+  }
+
+  &.button_blue {
+    background: @light-blue;
+    color: #fff;
+
+    &:hover {
+      background: darken(@light-blue, 10%);
+      color: #fff;
+    }
+
+    &:active {
+      background: lighten(@light-blue, 5%);
+    }
+
+  }
+
+  &.button_dimmed_blue {
+    background: darken(@light-blue, 10%);
+    color: #fff;
+
+    &:hover {
+      background: @light-blue;
+      color: #fff;
+    }
+
+    &:active {
+      background: lighten(@light-blue, 15%);
+      color: #fff;
+    }
+
+  }
+
+  &.button_red {
+    background: @red;
+    color: #fff;
+
+    &:hover {
+      background: darken(@red, 10%);
+      color: #fff;
+    }
+
+    &:active {
+      background: lighten(@red, 5%);
+    }
+
+  }
+
+  &.button_lite {
+    background: transparent;
+    color: @button-lite-color;
+    border: 1px solid @stroke-gray;
+
+    i {
+      //      .size(16px, 16px);
+      margin: 0 1px 0 0;
+    }
+
+    &:hover {
+      border: 1px solid darken(#a6a6a6, 5%);
+      color: darken(#a6a6a6, 15%);
+
+      i {
+        polygon, polyline, rect, path {
+          fill: @light-blue;
+        }
+      }
+    }
+
+    &.button_hover_blue {
+
+      &:hover {
+        border: 1px solid @light-blue;
+        color: @light-blue;
+
+        i {
+          polygon, polyline, rect, path {
+            fill: @light-blue;
+          }
+        }
+      }
+
+      &:active {
+        border: 1px solid lighten(@light-blue, 10%);
+        color: lighten(@light-blue, 10%);
+
+        i {
+          polygon, polyline, rect, path {
+            fill: lighten(@light-blue, 10%);
+          }
+        }
+      }
+
+    }
+
+    &.button_hover_red {
+
+      &:hover {
+        border: 1px solid @red;
+        color: @red;
+
+        i {
+          polygon, polyline, rect, path {
+            fill: @red;
+          }
+        }
+      }
+
+      &:active {
+        border: 1px solid lighten(@red, 10%);
+        color: lighten(@red, 10%);
+
+        i {
+          polygon, polyline, rect, path {
+            fill: lighten(@red, 10%);
+          }
+        }
+      }
+    }
+
+    &.button_hover_green {
+
+      &:hover {
+        border: 1px solid @green;
+        color: @green;
+
+        i {
+          polygon, polyline, rect, path {
+            fill: @green;
+          }
+        }
+      }
+
+      &:active {
+        border: 1px solid lighten(@green, 10%);
+        color: lighten(@green, 10%);
+
+        i {
+          polygon, polyline, rect, path {
+            fill: lighten(@green, 10%);
+          }
+        }
+      }
+    }
+
+  }
+
+  &.button_lite_blue {
+    background: transparent;
+    color: @light-blue;
+    border: 1px solid @light-blue;
+
+    &:hover {
+      background: @light-blue;
+      border: 1px solid @light-blue;
+      color: #fff;
+
+      i {
+        polygon, polyline, rect, path {
+          fill: @light-blue;
+        }
+      }
+    }
+  }
+
+  &.button_lite_green {
+    background: transparent;
+    color: @green;
+    border: 1px solid @green;
+
+    &:hover {
+      background: @green;
+      border: 1px solid @green;
+      color: #fff;
+
+      i {
+        polygon, polyline, rect, path {
+          fill: @green;
+        }
+      }
+    }
+  }
+
+  &.button_lite_red {
+    background: transparent;
+    color: @red;
+    border: 1px solid @red;
+
+    &:hover {
+      background: @red;
+      border: 1px solid @red;
+      color: #fff;
+
+      i {
+        polygon, polyline, rect, path {
+          fill: @red;
+        }
+      }
+    }
+  }
+
+  &.button_dark_blue {
+    background: #464d5e;
+    color: #bbc2d4;
+    border: none;
+
+    &:hover {
+      background: lighten(#464d5e, 10%);
+      color: #fff !important;
+      border: none !important;
+    }
+
+    &:active {
+      background: darken(#464d5e, 5%);
+    }
+
+  }
+
+  &.button_light_gray{
+    &:hover {
+      svg {
+        * {
+          fill : @white;
+        }
+      }
+    }
+    svg {
+      margin-left: 7px;
+      margin-bottom: -1px;
+      * {
+        fill : @dark-blue;
+      }
+    }
+  }
+
+  &.button_no_outline {
+    border: none !important;
+    background: transparent;
+    color: @button-lite-color;
+
+    &:hover {
+      border: none !important;
+      color: @light-blue;
+
+      i {
+        polygon, polyline, rect, path {
+          fill: @light-blue;
+        }
+      }
+    }
+
+    &:active {
+      color: lighten(@light-blue, 20%);
+
+      i {
+        polygon, polyline, rect, path {
+          fill: lighten(@light-blue, 20%);
+        }
+      }
+    }
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] &,
+  &.disabled:hover,
+  &[disabled]:hover {
+    color: #fff !important;
+    background: @button-disabled !important;
+    cursor: default;
+
+    .button_number {
+      display: none;
+    }
+  }
+
+  // END -- Button colors
+  // --------------------------------------------------
+
+  // Button Sizes
+  &.button_large {
+    .display(relative);
+    height: @button-height-large;
+    font-size: 14px;
+    line-height: @button-height-large + 1;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  &.button_extra_large {
+    .display(relative);
+    height: @button-height-extra-large;
+    letter-spacing: 2px;
+    text-align: center;
+    font: normal normal 17px @font-gotham-book;
+    color: #FFFFFF;
+    line-height: @button-height-extra-large + 1;
+    text-align: center;
+    border-right: 1px solid #fff;
+    letter-spacing: 2px;
+  }
+
+  &.button_small {
+    height: 30px;
+    font-family: @font-gotham-book;
+    font-size: 12px;
+    letter-spacing: 1.25px;
+    line-height: 30px;
+  }
+
+  &.button_slim {
+    height: 32px;
+    line-height: 33px;
+    font-family: @font-gotham-book;
+    font-size: 10px;
+    background: #fff;
+    color: @button-default-bg;
+    letter-spacing: 1.2px;
+
+    path {
+      fill: @button-default-bg;
+    }
+
+    &:hover {
+      background: @light-blue;
+      color: #fff;
+
+      path {
+        fill: #fff;
+      }
+    }
+
+    &:active {
+      background: lighten(@light-blue, 10%);
+      color: #fff;
+
+      path {
+        fill: #fff;
+      }
+    }
+  }
+
+  &.button_block{
+    width:100%;
+    .box-sizing(border-box);
+  }
+
+  // Button Elements
+  > span {
+
+    &.button_label {
+      color: #fff;
+      position: relative;
+
+    }
+
+    &.button_number {
+      color: #fff;
+      position: relative;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    &.button_after_divider {
+      padding: 0 23px 0 0px;
+      display: inline-block;
+
+      &:after {
+        .button_divider();
+      }
+    }
+
+    &.button_before_divider {
+      padding: 0 0 0 23px;
+      display: inline-block;
+
+      &:before {
+        .button_divider();
+      }
+    }
+  }
+
+  // Icons
+
+  i.svg-icon-edit {
+    top: 3px;
+  }
+
+  i.svg-icon-gear {
+    top: 6px;
+  }
+
+  i.svg-icon-close {
+    top: 6px;
+  }
+
+  i.svg-icon-tick {
+    top: 0;
+  }
+
+  i.svg-icon-delete {
+    top: 3px;
+  }
+
+  i.svg-icon-cross {
+    top: 2px;
+  }
+
+  i.svg-arrow-right {
+    top: 3px;
+  }
+
+  i.arrow_right {
+    top: 1px;
+    margin: 0 0 0 3px;
+  }
+
+  i.arrow_left {
+    top: 1px;
+    margin: 0 3px 0 0;
+  }
+
+  .svg_icon {
+    .size(12px, 12px);
+    display: inline-block;
+    position: relative;
+    top: 1px;
+
+    svg {
+      .size(12px, 12px);
+    }
+
+    path {
+      fill: #fff;
+    }
+  }
+
+  i.svg_list_icon {
+    top: 1px;
+    margin: 0 0 0 5px;
+  }
+
+}
+
+// Button toggle
+// --------------------------------------------------
+
+.button_toggle{
+
+  .button {
+    background: @button-switch-inactive;
+
+    &:hover {
+      background: darken(@button-switch-inactive, 7%);
+    }
+  }
+
+  &.button_active {
+    .button {
+      background: @button-default-bg;
+      // cursor: default;
+    }
+  }
+
+  &.button_disabled {
+    .button {
+      background: @button-disabled;
+      cursor: default;
+    }
+  }
+
+
+}
+
+// Button switch
+// --------------------------------------------------
+
+.button_switch {
+
+  > ul {
+    .border-radius(@border-radius-base);
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+
+    li {
+      float: left;
+      border-left: 1px solid #a4acb6;
+      display: block;
+
+      .button {
+        background: @button-switch-inactive;
+        .border-radius(0);
+
+        &:hover {
+          background: darken(@button-switch-inactive, 7%);
+        }
+      }
+
+      &.button_active {
+        .button {
+          background: @button-default-bg;
+          cursor: default;
+        }
+      }
+
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+
+  // Switch Responsiveness
+  // --------------------------------------------------
+
+  @media @screen1024 {
+
+    span {
+      display: none;
+    }
+
+  }
+
+  @media @screen1280 {
+
+    > span {
+      display: none;
+    }
+
+  }
+
+  @media @screen1366 {
+  }
+
+  @media @screen1440 {
+  }
+
+  @media @screen1680 {
+  }
+
+  @media @screen1920 {
+  }
+
+  @media @screen2560 {
+  }
+
+  @media @mobile {
+  }
+}
+
+
+//Button Multi State
+.button.button_multi_state,
+.button.demo_button{
+  .transition(all 0.2s ease-in-out);
+  width : 260px;
+  overflow: hidden;
+  position: relative;
+  div {
+    position: absolute;
+    .topLeft(0,0);
+    .size(100%,100%);
+  }
+
+  span{
+    position: relative;
+    height: 28px;
+    line-height: 28px;
+    vertical-align: middle;
+    .throbber{
+      display: block;
+    }
+
+  }
+
+  .throbber-container{
+    position: relative;
+    display: inline-block;
+    width: 28px;
+    margin-top: -6px;
+    margin-right: 5px;
+  }
+
+  .loading{
+    opacity: 0;
+  }
+
+  .error{
+    opacity: 0;
+    color : @white;
+    span{
+      font-size: 10px;
+      padding: 7px 0;
+    }
+  }
+  &.with_error{
+    background: @red;
+
+  }
+
+  .success{
+    opacity: 0;
+  }
+
+}
+
+.button.button_multi_state{
+  overflow: hidden;
+  position: relative;
+
+  span.button_state,
+  div.button_state{
+    position: absolute;
+    display: inline-block;
+  }
+}

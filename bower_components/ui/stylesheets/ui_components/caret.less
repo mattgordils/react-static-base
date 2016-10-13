@@ -1,0 +1,24 @@
+@import "~assets/stylesheets/vars.less";
+
+.caret {
+	.caret();
+
+	&.caret-desc {
+	  border-top: 4px solid #acb2c0;
+	}
+
+	&.caret-asc {
+	  border-bottom: 4px solid #acb2c0;
+	}
+
+	&.caret-dark-blue {
+	  &.caret-desc {
+	    border-top: 4px solid @dark-blue;
+	  }
+
+	  &.caret-asc {
+	    border-bottom: 4px solid @dark-blue;
+	  }
+
+	}
+}

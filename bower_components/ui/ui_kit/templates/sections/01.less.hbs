@@ -1,0 +1,423 @@
+<div id="guide01" class="js-ui_section ui_section">
+
+<div class="ui_heading">
+    <h1>01. LESS STRUCTURE</h1>
+    <h2>Kraken uses a custom LESS framework which inludes a combination <br>
+        of independent UI components and screen-specific modules.</h2>
+</div>
+
+<div class="ui_description">
+
+    <h3>Main Files</h3>
+
+    <div class="column_6_16">
+
+<code class="codeblock">
+kraken/
+└─ assets/
+   └─ stylesheets/
+      └─ kraken/
+         ├── ...
+         ├── <i class="red">ui_components/</i>
+         ├── <i class="red">ui_setup/</i>
+         ├── <i class="blue">app_scaffolding.less</i>
+         ├── <i class="green">application.css</i>
+         ├── <i class="blue">application.less</i>
+         ├── <i class="blue">ui_components.less</i>
+         └── <i class="blue">ui_setup.less</i>
+</code>
+
+    </div>
+
+    <div class="column_6_16">
+        <p><code>application.less</code> defines the order of modules loading.
+            It’s the main file that combines all the <code>.less</code> assets into
+            <code class="green">application.css</code> which then will be minified and included
+            in the app.
+        </p>
+
+        <p><code class="red">ui_components/</code> contains all reusable elements styles. <br>
+            <code class="red">ui_setup/</code> contains variables, mixins, fonts, colors and sizes.</p>
+
+        <p>Gulp is watching  the whole <code class="red">stylesheets/</code> directory and compiling
+            <code class="green">application.css</code> on every <code>.less</code> file change</p>
+
+    </div>
+
+</div>
+
+<div class="ui_description">
+
+    <h3>UI Setup</h3>
+
+    <div class="column_6_16">
+
+<code class="codeblock">
+// UI variables
+@import "ui_setup/<i class="blue">vars_colors.less</i>";
+@import "ui_setup/<i class="blue">vars_typography.less</i>";
+@import "ui_setup/<i class="blue">vars_media_queries.less</i>";
+@import "ui_setup/<i class="blue">vars_sizes.less</i>";
+@import "ui_setup/<i class="blue">vars_zindex_layers.less</i>";
+
+// YUI + Bootstrap reset CSS
+@import "ui_setup/<i class="blue">reset.less</i>";
+
+// Fonts
+@import "ui_setup/<i class="blue">fonts.less</i>";
+
+// LESS Mixins
+@import "ui_setup/<i class="blue">mixins.less</i>";
+
+// Grids Mixins
+@import "ui_setup/<i class="blue">grids.less</i>";
+
+
+
+</code>
+
+    </div>
+
+    <div class="column_6_16">
+        <p><code>ui_setup.less</code> is file that imports all the “settings” for UI. It is highly important that
+            this file is loaded before any other <code>.less</code> file because all of them have references
+            to the components which are included here.</p>
+
+        <p>It is necessary to avoid using plain HEX/RGBA color values while styling UI elements
+            and define variables for colors in <code>vars_colors.less</code>.</p>
+
+        <p>Font-family should always be declared through a variable. All available fonts have
+            repective variables in <code>vars_typography.less</code>.</p>
+
+        <p>Major dimensions of app UI should be declared in <code>vars_sizes.less</code>, especially if any
+            width/height is used several times in the app. This file should also include sizes
+            for all responsiveness breakpoints per every element that will be resized.</p>
+
+        <p class="emphasized">NEVER write plain z-index values in the code. ALWAYS use layers,
+            which are declared in <code>vars_zindex_layers.less</code></p>
+
+    </div>
+
+</div>
+
+<div class="ui_description">
+
+    <h3>UI Components</h3>
+
+    <div class="column_6_16">
+
+<code class="codeblock">
+// Basic styles
+@import "ui_components/<i class="blue">basics.less</i>";
+
+// All Kinds of UI buttons
+@import "ui_components/<i class="blue">button.less</i>";
+
+// Form Elements
+@import "ui_components/<i class="blue">checkbox.less</i>";
+@import "ui_components/<i class="blue">radio.less</i>";
+@import "ui_components/<i class="blue">input.less</i>";
+
+// Throbber
+@import "ui_components/<i class="blue">throbber.less</i>";
+
+...
+
+// Search Bar
+@import "ui_components/<i class="blue">twitter_typeahead.less</i>";
+
+// Comp Sidebar List
+@import "ui_components/comp_sidebar/<i class="blue">header.less</i>";
+@import "ui_components/comp_sidebar/<i class="blue">comp_list.less</i>";
+
+// Map Common Elements
+@import "ui_components/map/<i class="blue">map_controls.less</i>";
+@import "ui_components/map/<i class="blue">total_comp_count.less</i>";
+@import "ui_components/map/<i class="blue">marker.less</i>";
+@import "ui_components/map/<i class="blue">tooltip.less</i>";
+@import "ui_components/map/<i class="blue">menu.less</i>";
+
+...
+
+</code>
+
+    </div>
+
+    <div class="column_6_16">
+        <p><code>ui_components.less</code> imports all reusable components of the app. </p>
+
+        <p>“Reusable” means that it’s agnostic to container and the styles defined there are
+            accessible from any place at the app.</p>
+
+        <p>This file imports not only small elements like buttons or inputs, but sometimes it may
+            include styles for the whole sub-section of the app that could be used in multiple places.</p>
+
+        <p>For example “Comp Sidebar List” is the sidebar section that’s used in several places –
+            that requires a reusable component for it to be defined. </p>
+
+        <p>Every element that is not unique at the app and could potentially be used multiple times
+            should be a UI component and be imported there.</p>
+
+        <p class="emphasized">If during development you see a need to copy a set of styles to style the same section
+            in different screen – it means that this component should be refactored and abstracted
+            out from the app’s styles to a reusable UI component.</p>
+
+    </div>
+
+</div>
+
+<div class="ui_description">
+
+    <h3>App Scaffolding</h3>
+
+    <div class="column_6_16">
+
+<code class="codeblock">
+...
+
+<i class="blue">.application_wrapper</i> {
+    .display(absolute);
+    .size(100%, 100%);
+    .topLeft(0, 0);
+    overflow: hidden;
+
+    // Header Module
+    @import "header/<i class="blue">header.less</i>";
+
+    // Application Screens
+    <i class="blue">.application_content</i> {
+        .display(absolute);
+        .topLeft(@header-height, 0);
+        .bottomRight(0, 0);
+
+        <i class="blue">section</i> {
+            .display(absolute);
+            .size(100%, 100%);
+
+            // Login
+            &.login {
+              @import "login/<i class="blue">login.less</i>";
+            }
+
+            // Dashboard Screen
+            &.dashboard {
+              @import "dashboard/<i class="blue">sidebar.less</i>";
+              @import "dashboard/<i class="blue">content.less</i>";
+            }
+
+            // Search Screen
+            &.search {
+              @import "search/<i class="blue">sidebar.less</i>";
+              @import "search/<i class="blue">content.less</i>";
+            }
+
+            // Comp Screen
+            &.comp {
+              @import "comp/<i class="blue">sidebar.less</i>";
+              @import "comp/<i class="blue">content.less</i>";
+            }
+
+            // Map Search
+            &.map_filter {
+              @import "map_filter/<i class="blue">sidebar.less</i>";
+              @import "map_filter/<i class="blue">map.less</i>";
+            }
+            ...
+        }
+    }
+}
+</code>
+
+    </div>
+
+    <div class="column_6_16">
+        <p><code>app_scaffolding.less</code> is the “backbone” of the app’s styles. It includes
+            modules imports per every screen the app has. </p>
+
+        <p>For consistency purposes every screen layout has the same parent’s layout structure.
+            The only unique part of the app is always located inside
+            <code>.application_content > section.screenClassName {...}</code></p>
+
+        <p>So styles for the layout of any particular screen could be imported in the section with
+            appropriate class name.</p>
+
+        <h5>Screen Layouts</h5>
+
+        <p>Any screen can be holistically divided into major sections which should become
+            independent <code>.less</code> components.</p>
+
+        <p>Mostly, screens will have sidebar and content sections. Sometimes the screen is even
+            simpler than that and has just content part. It it important to divide screens in those
+            sections for better code readability.</p>
+
+        <div class="row">
+            <ul>
+                <li class="column_3_6">
+                    <svg  width="206px" height="129px" viewBox="0 0 206 129">
+                        <rect fill="#F0F4F5" width="206" height="129"/>
+                        <rect x="5" y="6" fill="#FFFFFF" width="196" height="118"/>
+                    </svg>
+
+                    <span>Content</span>
+                </li>
+
+                <li class="column_3_6">
+                    <svg width="206px" height="129px" viewBox="0 0 206 129">
+                        <rect fill="#F0F4F5" width="206" height="129"/>
+                        <rect x="5" y="6" fill="#FFFFFF" width="43" height="118"/>
+                        <rect x="53" y="6" fill="#FFFFFF" width="148" height="118"/>
+                    </svg>
+
+                    <span>Search: Sidebar + Content</span>
+                </li>
+
+                <li class="column_3_6">
+                    <svg width="206px" height="129px" viewBox="0 0 206 129">
+                        <rect fill="#F0F4F5" width="206" height="129"/>
+                        <rect x="5" y="6" fill="#FFFFFF" width="43" height="118"/>
+                        <rect x="57" y="13" fill="#FFFFFF" width="66" height="106"/>
+                        <rect x="127" y="13" fill="#FFFFFF" width="66" height="106"/>
+                        <path fill="#FFFFFF" d="M197,9v114H53V9H197 M199,7H51v118h148V7L199,7z"/>
+                    </svg>
+
+                    <span>Comp: Sidebar + Content </span>
+                </li>
+
+                <li class="column_3_6">
+                    <svg width="206px" height="129px" viewBox="0 0 206 129">
+                        <rect fill="#F0F4F5" width="206" height="129"/>
+                        <rect x="5" y="6" fill="#FFFFFF" width="17" height="118"/>
+                        <rect x="26" y="6" fill="#FFFFFF" width="175" height="118"/>
+                    </svg>
+
+                    <span>Map Filter: Sidebar + Map</span>
+                </li>
+            </ul>
+        </div>
+
+        <p class="emphasized">Include only high level screen layout divisions into
+            <code>app_scaffolding.less</code> – mostly variations of content/sidebar. <br> <br>
+
+            More specific screen layouts divisions should be specified within the particular screen folder.</p>
+
+    </div>
+
+</div>
+
+<div class="ui_description">
+
+    <h3>Screen Specific Styles</h3>
+
+    <div class="column_6_16">
+
+<code class="codeblock">
+<i class="blue">.comp_content</i> {
+    .display(absolute);
+    .topLeft(0, 0);
+    .bottomRight(0, 0);
+
+    // Map Section;
+    @import "content/<i class="blue">map_section.less</i>";
+
+    // Details Section
+    <i class="blue">.comp_content_details</i> {
+        .display(absolute);
+        .topRight(0, 0);
+        .size(50%, 100%);
+        background: #fff;
+
+        // Unlock, export print etc
+        @import "content/<i class="blue">actions.less</i>";
+
+        // Attributes section
+        @import "content/<i class="blue">details.less</i>";
+    }
+
+    ...
+
+    @media @screen1024 {
+      left: @comp-sidebar-width-1024;
+    }
+
+    @media @screen1280 {
+      left: @comp-sidebar-width-1280;
+    }
+
+    @media @screen1366 {
+      left: @comp-sidebar-width-1366;
+    }
+
+    @media @screen1440 {
+      left: @comp-sidebar-width-1440;
+    }
+
+    ...
+
+}
+</code>
+
+    </div>
+
+    <div class="column_6_16">
+        <p>When creating styles for a new screen, new directory with the screen name should be
+            created and all the required files should be within it.</p>
+
+        <p>In this code example, we’re looking at the content section styles for the “Comp Details
+            Screen”, which is located at <code class="red">stylesheets/kraken/comp</code> directory
+            and has <code>content.less</code> and <code>sidebar.less</code> files.</p>
+
+        <div class="row">
+            <div class="column_6_6">
+                <h5>Comp Details Screen</h5>
+                <svg width="541.3px" height="296.7px" viewBox="0 0 541.3 296.7">
+                    <g>
+                        <rect fill="#F0F4F5" width="430" height="247"/>
+                        <g>
+                            <path fill="#FFFFFF" d="M412,18v211H100V18H412 M416,14H96v219h320V14L416,14z"/>
+                        </g>
+                        <rect x="119" y="26" fill="#FFFFFF" width="133" height="195"/>
+                        <rect x="271" y="71" fill="#FFFFFF" width="111" height="140"/>
+                        <rect x="271" y="38" fill="#FFFFFF" width="111" height="26"/>
+                        <line fill="none" stroke="#A1A3A3" stroke-miterlimit="10" x1="111.5" y1="231" x2="111.5" y2="266"/>
+                        <line fill="none" stroke="#A1A3A3" stroke-miterlimit="10" x1="210.5" y1="169" x2="210.5" y2="267"/>
+                        <g>
+                            <text transform="matrix(1 0 0 1 68.1978 292.6191)" fill="#0954FF" font-family="'Menlo-Regular'" font-size="11">.comp_content</text>
+                        </g>
+                        <g>
+                            <text transform="matrix(1 0 0 1 181.6864 292.6191)" fill="#0954FF" font-family="'Menlo-Regular'" font-size="11">map_section.less</text>
+                        </g>
+                        <g>
+                            <text transform="matrix(1 0 0 1 349.0502 290.6191)" fill="#0954FF" font-family="'Menlo-Regular'" font-size="11">.comp_content_details</text>
+                        </g>
+                        <g>
+                            <path fill="#FFFFFF" d="M389,31v187H263V31H389 M393,27H259v195h134V27L393,27z"/>
+                        </g>
+                        <line fill="none" stroke="#A1A3A3" stroke-miterlimit="10" x1="371.5" y1="220" x2="371.5" y2="266"/>
+                        <g>
+                            <text transform="matrix(1 0 0 1 461.8762 52.9702)" fill="#0954FF" font-family="'Menlo-Regular'" font-size="11">actions.less</text>
+                        </g>
+                        <line fill="none" stroke="#A1A3A3" stroke-miterlimit="10" x1="358" y1="146.5" x2="452" y2="146.5"/>
+                        <line fill="none" stroke="#A1A3A3" stroke-miterlimit="10" x1="358" y1="50.5" x2="452" y2="50.5"/>
+                        <g>
+                            <text transform="matrix(1 0 0 1 461.8762 148.5896)" fill="#0954FF" font-family="'Menlo-Regular'" font-size="11">details.less</text>
+                        </g>
+                    </g>
+                </svg>
+
+            </div>
+        </div>
+
+        <p>Each logical layout division has it’s own file for better code
+            management, readability and debugging.</p>
+
+        <p class="emphasized">The more divisions you have – the better! Don’t be afraid to create
+            more smaller <code>.less</code> files. This will help you. <br> <br>
+
+            Split up complicated screen layouts into simple <code>.less</code> files and @import
+            them within major section files.</p>
+
+    </div>
+
+</div>
+
+</div>

@@ -1,0 +1,88 @@
+// tooltip
+// -------------------------
+
+.tooltip {
+  .display(absolute);
+  z-index: @layer-top;
+  visibility: visible;
+  padding: 5px;
+  font-size: 10px;
+  opacity: 0;
+
+  &.in {
+    opacity: 1;
+  }
+
+  &.top {
+    margin-top: -2px
+  }
+
+  &.right {
+    margin-left: 2px
+  }
+
+  &.bottom {
+    margin-top: 2px;
+  }
+
+  &.left {
+    margin-left: -2px
+  }
+
+  &.top .tooltip-arrow {
+    bottom: 0px;
+    left: 50%;
+    margin-left: -@tooltip-arrow;
+    border-left: @tooltip-arrow solid transparent;
+    border-right: @tooltip-arrow solid transparent;
+    border-top: @tooltip-arrow solid @tooltip-bg;
+  }
+
+  &.left .tooltip-arrow {
+    top: 50%;
+    right: 1px;
+    margin-top: -@tooltip-arrow;
+    border-top: @tooltip-arrow solid transparent;
+    border-bottom: @tooltip-arrow solid transparent;
+    border-left: @tooltip-arrow solid @tooltip-bg;
+  }
+
+  &.bottom .tooltip-arrow {
+    top: 1px;
+    left: 50%;
+    margin-left: -@tooltip-arrow;
+    border-left: @tooltip-arrow solid transparent;
+    border-right: @tooltip-arrow solid transparent;
+    border-bottom: @tooltip-arrow solid @tooltip-bg;
+  }
+
+  &.right .tooltip-arrow {
+    top: 50%;
+    left: 1px;
+    margin-top: -@tooltip-arrow;
+    border-top: @tooltip-arrow solid transparent;
+    border-bottom: @tooltip-arrow solid transparent;
+    border-right: @tooltip-arrow solid @tooltip-bg;
+  }
+
+  .tooltip-inner {
+    max-width: 200px;
+    padding: 10px 10px;
+    color: #fff;
+    text-align: center;
+    line-height: 17px;
+    font-size: 11px;
+    text-decoration: none;
+    background-color: @tooltip-bg;
+    font-family: @font-opensans-light;
+    letter-spacing: .2px;
+    font-weight: normal;
+    .border-radius(@border-radius-base);
+    .box-shadow(0px 5px 60px rgba(25, 28, 40, 0.15));
+  }
+
+  .tooltip-arrow {
+    position: absolute;
+    .size(0, 0);
+  }
+}

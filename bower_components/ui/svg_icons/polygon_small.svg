@@ -1,0 +1,12 @@
+<svg idth="20.8px" height="20.8px" viewBox="0 0 20.8 20.8">
+
+    <rect x="4.4" y="4.4" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 25.1064 10.4005)" fill="none"
+          stroke="#FFFFFF" stroke-miterlimit="10" width="12" height="12"/>
+
+    <rect x="4.4" y="4.4" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 25.1064 10.4005)" opacity="0.2"
+          fill="#FFFFFF" enable-background="new    " width="12" height="12"/>
+    <circle fill="#FFFFFF" cx="10.4" cy="1.9" r="1.9"/>
+    <circle fill="#FFFFFF" cx="18.9" cy="10.4" r="1.9"/>
+    <circle fill="#FFFFFF" cx="10.4" cy="18.9" r="1.9"/>
+    <circle fill="#FFFFFF" cx="1.9" cy="10.4" r="1.9"/>
+</svg>

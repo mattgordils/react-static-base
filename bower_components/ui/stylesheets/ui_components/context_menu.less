@@ -1,0 +1,162 @@
+// Context Menu
+// --------------------------------------------------
+
+.context_menu {
+  .border-radius(2px);
+  .box-shadow(0px 5px 20px rgba(25, 28, 40, 0.2));
+  display: block;
+  opacity: 0;
+  width: 247px;
+  background: #363b49;
+  padding: 0 0 16px 0;
+  color: #fff;
+  z-index: 1000;
+  position: fixed;
+  overflow: hidden;
+
+  path {
+    fill: #9ca2b3;
+  }
+
+  li {
+    font-size: 12px;
+    line-height: 20px;
+
+    .item_address {
+      .display(relative);
+      margin: 22px 0 0px 22px;
+      max-width: 165px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: normal;
+      font-family: @font-opensans-light;
+      font-size: 12px;
+      white-space: nowrap;
+      letter-spacing: .1px;
+    }
+
+    .item_tenant {
+      .display(relative);
+      margin: 0 0 0 22px;
+      max-width: 165px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: normal;
+      font-family: @font-opensans-light;
+      font-size: 11px;
+      white-space: nowrap;
+      color: #9ca2b3;
+      opacity: .9;
+      letter-spacing: .4px;
+    }
+
+    .item_meta_info {
+      .display(relative);
+      margin: 4px 11px 18px 22px;
+      z-index: 1;
+      max-width: 165px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      > ul {
+        .display(relative);
+        width: 350px;
+
+        li {
+          .display(relative);
+          float: left;
+          font: normal normal 10px @font-gotham-book;
+          margin: 0 5px 0 0;
+
+          &.meta_info {
+            color: @light-blue;
+          }
+
+          &.meta_divider {
+            color: darken(@light-blue, 30%);
+          }
+        }
+      }
+    }
+
+    .context_menu_close {
+      .display(absolute);
+      .topRight(15px, 12px);
+      .scale(.8);
+      cursor: pointer;
+      opacity: .5;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .customize_columns {
+      cursor: pointer;
+      .display(relative);
+      margin: 15px 0 0 22px;
+
+      i {
+        display: inline-block;
+      }
+
+      span {
+        font-family: @font-gotham-light;
+        text-transform: none;
+        font-size: 10px;
+        color: #9ca2b3;
+        position: relative;
+        left: 5px;
+        top: -2px;
+        letter-spacing: .6px;
+      }
+
+      &:hover {
+        span {
+          color: @light-blue;
+
+        }
+
+        path {
+          fill: @light-blue
+        }
+      }
+    }
+
+    .button {
+      display: block;
+      width: 172px;
+      margin: 11px 0 0 22px;
+      position: relative;
+
+      &.button_dark_blue {
+        text-transform: none;
+      }
+      .unlock_button_price_wrapper {
+        min-width: 39px;
+      }
+
+      label {
+        .display(absolute);
+        .topLeft(0, 0);
+        .size(100%, 100%);
+        padding: 0 0 0 10px;
+      }
+
+      .svg-small_arrow_right {
+        .display(absolute);
+        .topRight(15px, 15px);
+
+        polygon {
+          fill: #9ca2b3;
+        }
+
+        svg {
+          .size(10px, 10px);
+
+        }
+      }
+    }
+  }
+}

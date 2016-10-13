@@ -1,0 +1,25 @@
+// Select dropdown
+@import (less) "~select/../../css/select-theme-default.css";
+@import (less) "~select/../../css/select-theme-dark.css";
+
+.select-open {
+	z-index: 1;
+}
+
+.select-target.select-theme-dark {
+	border: none !important;
+	height: 40px;
+	vertical-align: middle;
+}
+
+.select.select-element.select-theme-dark .select-content, .select-target.select-theme-dark {
+	background-color: @button-default-bg;
+	border-radius: 2px;
+	font-family: @font-opensans-light;
+	color: @white;
+	width: 160px;
+}
+
+.select.select-element.select-theme-dark .select-content {
+	margin-top: 2px;
+}

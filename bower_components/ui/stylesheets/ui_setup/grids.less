@@ -1,0 +1,36 @@
+
+@grid-columns: 12;
+@grid-column-padding: 10px;
+
+// Grid
+.make-row() {
+  margin-left: -@grid-column-padding;
+  margin-right: -@grid-column-padding;
+  .clearfix();
+}
+
+.make-column(@columns, @grid-columns) {
+  float: left;
+  width: percentage(@columns / @grid-columns);
+  min-height: 1px;
+  padding-left: @grid-column-padding;
+  padding-right: @grid-column-padding;
+  .box-sizing(border-box);
+}
+
+.make-column-offset(@columns, @grid-columns) {
+  margin-left: percentage(@columns / @grid-columns);
+}
+
+.row{
+  .make-row();
+}
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+  .col-@{n}-@{i} {
+    .make-column(@i, @n);
+  }
+  .generate-columns(@n, (@i + 1));
+}
+
+.generate-columns(@grid-columns);

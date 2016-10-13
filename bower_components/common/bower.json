@@ -1,0 +1,26 @@
+{
+	"name": "common",
+	"version": "1.1.0",
+	"description": "Common models and components for react/immutable",
+	"main": "index.js",
+	"authors": [
+		"Stu Kabakoff <stuart@compstak.com>"
+	],
+	"license": "ISC",
+	"moduleType": [
+		"es6"
+	],
+	"homepage": "",
+	"private": true,
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"devDependencies": {
+		"ui": "compstak/fed-ui#>=12.0.0",
+		"services": "compstak/fed-services#>=12.3.0"
+	}
+}

@@ -1,0 +1,8 @@
+<svg width="51px" height="51px" viewBox="0 0 51 51">
+
+    <circle class="circle" fill="none" stroke="#4BA4FF" stroke-miterlimit="10" cx="25.5" cy="25.5" r="25"/>
+    
+    <ellipse class="mag_circle" transform="matrix(0.7071 0.7071 -0.7071 0.7071 22.2881 -9.4072)" fill="none" stroke="#4BA4FF" stroke-miterlimit="10" cx="22.5" cy="22.2" rx="6.2" ry="6.3"/>
+    
+    <line class="mag_line" fill="none" stroke="#4BA4FF" stroke-linecap="square" stroke-miterlimit="10" x1="26.6" y1="27.6" x2="33.4" y2="34.4"/>
+</svg>

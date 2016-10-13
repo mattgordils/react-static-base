@@ -1,0 +1,8 @@
+<svg width="46px" height="46px">
+    <circle fill="#F16852" cx="42.497" cy="22.958" r="3.419"/>
+    <circle fill="#F16852" cx="22.958" cy="3.419" r="3.419"/>
+    <circle fill="#F16852" cx="3.419" cy="22.958" r="3.419"/>
+    <circle fill="#F16852" cx="22.958" cy="42.497" r="3.419"/>
+    <rect x="8.797" y="8.797" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -9.5097 22.9583)" opacity="0.25"
+          fill="#F16852" width="28.323" height="28.323"/>
+</svg>

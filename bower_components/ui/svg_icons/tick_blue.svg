@@ -1,0 +1,7 @@
+<svg width="19px" height="19px">
+    <circle fill="#21A4D9" stroke="#FFFFFF"  stroke-miterlimit="10" cx="9.169" cy="9.169" r="8.669"/>
+
+    <polyline fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              stroke-miterlimit="10" points="
+		13.259,7.127 8.266,12.12 5.186,9.04 	"/>
+</svg>

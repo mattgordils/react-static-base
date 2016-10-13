@@ -1,0 +1,19 @@
+MOVE:
+
+stylesheets/ui_setup
+move some vars to shared
+
+REFACTOR:
+media queries
+fonts & typography
+rename throbber, make x-small, small, large, x-large
+UI kit to jquery
+remove CSS icons and replace with SVG
+
+
+APP TO SHARED
+ui_components/list_view_table.less
+find something that finds dupe files and move those to shared or delete them
+
+APP TO UI
+button styles to button.less

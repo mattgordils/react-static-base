@@ -1,0 +1,72 @@
+.alertify-logs {
+	font-family: @font-gotham-light;
+
+	.left > *, 
+	&.left >.hide,
+	&:not(.right) > *,
+	&:not(.right)>.hide {
+		left: auto !important;
+		height: 55px;
+		.transform(translateY(80px));
+	}
+
+	&.left>.show,
+	&:not(.right)>.show {
+		.transform(translateY(0));
+	}
+	
+	> div {
+		position: relative;
+		border-radius: @border-radius-base;
+		min-width: @search-sidebar-width-base - 32;
+		@media @screen1024 {
+			min-width: @search-sidebar-width-1024 - 32;
+		}
+		@media @screen1280 {
+			min-width: @search-sidebar-width-1280 - 32;
+		}
+		@media @screen1366 {
+			min-width: @search-sidebar-width-1366 - 32;
+		}
+		@media @screen1440 {
+			min-width: @search-sidebar-width-1440 - 32;
+		}
+		@media @screen1680 {
+			min-width: @search-sidebar-width-1680 - 32;
+		}
+		@media @screen1920 {
+			min-width: @search-sidebar-width-1920 - 32;
+		}
+		@media @screen2560 {
+			min-width: @search-sidebar-width-2560 - 32;
+		}
+		height: 50px;
+		padding: 12px 14px;
+		line-height: 30px;
+		box-shadow: none;
+
+		.notification-timer {
+			position: absolute;
+			bottom: 0;
+			width: 0px;
+			height: 3px;
+			left: 0px;
+			background-color: white;
+			opacity: 0.3;
+			transition: width linear 5s;
+		}
+
+		&.show .notification-timer {
+			width: 100%;
+		}
+	}
+
+	.default {
+		background-color: @light-blue;
+	}
+
+	.error {
+		background-color: @red;
+		color: @white;
+	}
+}

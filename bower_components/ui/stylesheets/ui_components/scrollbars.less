@@ -1,0 +1,169 @@
+// Scrollbar Styles
+
+.scrollable_area {
+  .display(absolute);
+  .topLeft(0, 0);
+  .bottomRight(0, 0);
+
+  > .nano-content {
+    position: absolute;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    .topLeft(0, 0);
+    bottom: 0 !important;
+    right: 0 !important;
+    outline: none !important;
+    padding-right: 0 !important;
+
+    &::-webkit-scrollbar {
+      visibility: hidden;
+      display: none;
+    }
+    z-index: @layer4 - 1;
+  }
+
+  > .nano-pane {
+    background: #fff;
+    position: absolute;
+    width: 16px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    .transition(all 0.2s ease);
+    cursor: pointer;
+    z-index: @layer4;
+    border-left: 1px solid #e8ebeb;
+
+    .nano-slider {
+      background: @stroke-gray;
+      position: relative;
+      margin: 4px 4px;
+      width: 8px;
+      .transition(background 0.2s ease);
+    }
+
+    &:hover, &:active {
+      .nano-slider {
+        background: darken(@stroke-gray, 10%);
+      }
+    }
+  }
+
+  // Dark scrollbar styles
+
+  &.dark_scrollable_area {
+    .nano-pane {
+      background: none;
+      border-left: none;
+
+      .nano-slider {
+        background: @sidebar-toggle-color;
+      }
+
+      &:hover, &:active {
+        .nano-slider {
+          background: lighten(@sidebar-toggle-color, 10%);
+        }
+      }
+    }
+
+    &.filled_scrollbar {
+      .nano-pane {
+        background: @dark-blue;
+      }
+    }
+  }
+}
+
+@-moz-document url-prefix() {
+  .nano-pane {
+    background: #fff;
+  }
+
+  .dark_scrollable_area {
+    .nano-pane {
+      z-index: @layer6 !important;
+      opacity: 1 !important;
+      background: @dark-blue !important;
+      border-left: 1px solid darken(@sidebar-toggle-color, 5%) !important;
+    }
+  }
+}
+
+.scrollbar_minimal {
+  &::-webkit-scrollbar {
+    width: 16px;
+    background-color: transparent;
+    background-clip: content-box;
+    cursor: pointer;
+  }
+
+  &::-webkit-scrollbar-button {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border: solid transparent;
+    border-width: 6px;
+    background-color: #c5c5c5;
+    background-clip: content-box;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken(#ccc, 5%);
+    }
+  }
+  &::-webkit-scrollbar-track {
+    border: solid #fff;
+    border-width: 1px 1px 1px 2px;
+    background-color: #fff;
+    background-clip: content-box;
+  }
+  &::-webkit-scrollbar-track-piece {
+    border-left: 1px solid @gray;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: 16px;
+    background-color: transparent;
+    background-clip: content-box;
+  }
+
+  &::-webkit-scrollbar-track:horizontal {
+    background-color: #fff;
+    background-clip: content-box;
+  }
+  &::-webkit-scrollbar-track-piece:horizontal {
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+  }
+  &::-webkit-scrollbar-thumb:horizontal {
+    border: solid transparent;
+    border-width: 2px 1px 2px 2px;
+    background-color: #c5c5c5;
+    background-clip: content-box;
+
+    &:hover {
+      background-color: darken(#ccc, 5%);
+    }
+  }
+  &::-webkit-scrollbar-corner {
+    display: none
+  }
+  &::-webkit-resizer {
+    display: none;
+  }
+
+  // for IE. TODO: test this.
+  scrollbar-base-color: #c5c5c5;
+  scrollbar-highlight-color: #c5c5c5;
+  scrollbar-track-color: #fff;
+  scrollbar-arrow-color: #c5c5c5;
+  scrollbar-shadow-color: #fff;
+  scrollbar-dark-shadow-color: #fff;
+}
+
+

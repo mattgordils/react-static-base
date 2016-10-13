@@ -1,0 +1,9 @@
+<svg height="26" width="19" x="0px" y="0px"
+     viewBox="0 0 19 26" enable-background="new 0 0 19 26" xml:space="preserve">
+<g>
+    <ellipse opacity="0.15" fill="#383C45" enable-background="new    " cx="9.5" cy="24" rx="5" ry="2"/>
+    <path fill="#2C93FE" d="M9.5,0C4.3,0,0,4.3,0,9.5c0,2.1,0.8,4.4,2.2,6.2c2.9,3.8,6.8,7.8,6.9,7.9L9.5,24l0.4-0.5
+        c0,0,3.9-4.1,6.9-7.9c1.4-1.7,2.2-4.1,2.2-6.2C19,4.3,14.7,0,9.5,0z"/>
+    <circle fill="#0069D4" cx="9.5" cy="9.5" r="3.5"/>
+</g>
+</svg>

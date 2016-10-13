@@ -1,0 +1,342 @@
+@import "~ui/stylesheets/ui_setup/fonts.less";
+@import "~ui/stylesheets/ui_setup/vars_typography.less";
+@import "~ui/stylesheets/ui_setup/vars_colors.less";
+@import "~ui/stylesheets/ui_setup/vars_sizes.less";
+@import "~ui/stylesheets/ui_setup/vars_media_queries.less";
+@import "~ui/stylesheets/ui_setup/vars_zindex_layers.less";
+@import "~ui/stylesheets/ui_setup/mixins.less";
+@import "~ui/stylesheets/ui_setup/animations.less";
+@import "~ui/stylesheets/ui_components/input.less";
+
+@login-speed : 1.25s;
+@offset : -45px;
+@delay : .15s;
+@transition-time : .7s;
+
+
+.page-login {
+	background-color: #f4f4f7;
+	width: 500px;
+	margin: auto;
+
+	.login_screen_content {
+
+		transition: transform @transition-time ease-in-out;
+		position: absolute;
+		width:100%;
+
+		// this makes the elements slide in on an offset
+		> * {
+			transition: transform @transition-time ease-in-out, opacity @transition-time ease-in-out, background-color @transition-time ease-in-out;
+			display: block;
+		}
+		> *:nth-child(1) {
+			transition-delay: 0.05s;
+		}
+		> *:nth-child(2) {
+			transition-delay: 0.1s;
+		}
+		> *:nth-child(3) {
+			transition-delay: 0.15s;
+		}
+		> *:nth-child(4) {
+			transition-delay: 0.2s;
+		}
+		> *:nth-child(5) {
+			transition-delay: 0.25s;
+		}
+		> *:nth-child(6) {
+			transition-delay: 0.3s;
+		}
+	}
+
+
+	.login-screen-enter {
+
+		&.spinner {
+			display: none;
+		}
+		&.login_screen_content {
+			> * {
+				opacity: 0;
+				.transform(translateY(@offset));
+			}
+		}
+		&.forget_password_content,
+		&.terms_content,
+		&.select_an_app_content,
+		&.reset_password_content {
+			> * {
+				opacity: 0;
+				transform: translate(20%, 0);
+			}
+		}
+	}
+
+	.login-screen-enter.login-screen-enter-active {
+
+		&.spinner {
+			display: none;
+		}
+		&.login_screen_content {
+			> * {
+				opacity: 1;
+				.transform(translate(0,0));
+			}
+		}
+
+		&.forget_password_content,
+		&.terms_content,
+		&.select_an_app_content,
+		&.reset_password_content {
+			> * {
+				opacity: 1;
+				.transform(translate(0,0));
+			}
+		}
+
+	}
+
+	.login-screen-leave {
+		&.spinner {
+			display: none;
+		}
+		&.login_screen_content {
+			> * {
+				opacity: 1;
+				.transform(translate(0,0));
+			}
+		}
+		&.forget_password_content,
+		&.terms_content,
+		&.select_an_app_content,
+		&.reset_password_content {
+			> * {
+				opacity: 1;
+				.transform(translate(0,0));
+			}
+		}
+	}
+
+	.login-screen-leave.login-screen-leave-active {
+		&.spinner {
+			display: none;
+		}
+		&.login_screen_content {
+			> * {
+				opacity: 0;
+				.transform(translateY(@offset));
+			}
+		}
+		&.forget_password_content,
+		&.terms_content,
+		&.select_an_app_content,
+		&.reset_password_content {
+			> * {
+				opacity: 0;
+				transform: translate(20%, 0);
+			}
+		}
+	}
+
+	&.resetpassword .reset_password_content {
+		overflow: visible;
+	}
+
+	&.mainlogin {
+		.login_form_content {
+			> * {
+				box-sizing: border-box;
+			}
+		}
+	}
+
+	&.forgotpassword .forget_password_content,
+	&.termsandconditions .terms_content,
+	&.selectanapp .select_an_app_content,
+	&.resetpassword .reset_password_content {
+		z-index: 1;
+		&> * {
+			opacity: 1 !important;
+			box-sizing: border-box;
+		}
+	}
+
+	.cs-icon-container {
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 35px;
+		margin: 0 auto 7px;
+		svg * {
+			fill: @dark-blue;
+		}
+	}
+
+	.cs-icon-text {
+		transition: opacity @transition-time ease-in-out, transform @transition-time ease-in-out;
+		font-family: @montserrat;
+		font-weight: 300;
+		font-size: 12px;
+		letter-spacing: .2em;
+		color: @dark-blue;
+		margin-bottom: 30px;
+	}
+
+	.throbber_container {
+		height: 160px;
+		position: relative;
+	}
+	.throbber {
+		display: block;
+	}
+
+	.login-form {
+		width: 330px;
+		position: absolute;
+		left: 50%;
+		top: 45%;
+		bottom: 0;
+		margin-top: -200px;
+		margin-left: -165px;
+
+		text-align: center;
+
+		h1 {
+			font-family: @montserrat;
+			font-weight: 300;
+			font-size: 18px;
+			letter-spacing: .3px;
+			margin: 10px 0 2px;
+		}
+
+		p {
+			font-size: 11px;
+			font-family: @roboto;
+			font-weight: 200;
+			letter-spacing: .015em;
+			color: lighten(@dark-blue, 40%);
+			margin-bottom: 24px;
+		}
+
+		form {
+			margin-top: 15px;
+		}
+
+		input {
+			height: 48px;
+			border-radius: 3px;
+			padding: 0 15px;
+			color: @dark-blue;
+			letter-spacing: 0.6px;
+			font-size: 14px;
+			font-family: @roboto;
+			font-weight: 200;
+			box-sizing: border-box;
+		}
+
+		button {
+			width: 125px;
+			margin: 15px auto 0;
+
+			&:not(.disabled):hover {
+				background: @light-blue;
+			}
+
+			&:not(.disabled):active {
+				background: #6bc5e6;
+			}
+		}
+
+		.content_below_inputs {
+			display: block;
+			text-align: left;
+			position: relative;
+			font-family: @roboto;
+			font-weight: 400;
+			color: @dark-blue;
+			font-size: 11px;
+			margin-top: -4px;
+			margin-bottom: 25px;
+
+			label[for="remember_me"] {
+				position: relative;
+				top: -1px;
+				letter-spacing: .2px;
+				opacity: .6;
+			}
+
+			.forgot_password_link {
+				position: absolute;
+				right: 0px;
+				top: 6px;
+
+				a {
+					color: @dark-blue;
+					opacity: .6;
+					&:hover {
+						opacity: 1;
+						color: @light-blue;
+					}
+				}
+
+			}
+		}
+
+		.error_message {
+			text-align: center;
+			font-family: @roboto;
+			font-weight: 200;
+			color: #ff666b;
+			margin: 0 0 15px 0;
+			font-size: 12px;
+		}
+
+	}
+
+	@import './forgotpassword.less';
+	@import './resetpassword.less';
+
+	.select_an_app_content {
+		.button {
+			margin: 10px 0;
+		}
+	}
+
+	.bottom-text {
+		position: fixed;
+		bottom: 45px;
+		left: 30px;
+		right: 30px;
+		text-align: center;
+		opacity: 0;
+		.transform(translateY(30px));
+		.animation(fadeInNoTranslate 1s .75s forwards);
+		span.text {
+			display: inline-block;
+			vertical-align: middle;
+			font-weight: 100;
+			font-size: 15px;
+			margin-right: 35px;
+			line-height: 40px;
+			letter-spacing: .02em;
+			color: lighten(@dark-blue, 10%);
+		}
+		.button_gray {
+			vertical-align: middle;
+			height: 40px;
+			width: 110px;
+			line-height: 40px;
+			font-size: 12px;
+			font-weight: 300;
+			background-color: lighten(@dark-blue, 68%);
+			border-color: lighten(@dark-blue, 68%);
+			color: lighten(@dark-blue, 10%);
+			&:hover {
+				background-color: lighten(@dark-blue, 62%);
+				border-color: lighten(@dark-blue, 62%);
+				color: @dark-blue;
+			}
+		}
+	}
+}

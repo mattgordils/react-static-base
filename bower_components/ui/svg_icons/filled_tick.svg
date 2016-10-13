@@ -1,0 +1,4 @@
+<svg viewBox="0 0 17 17"  {...widthHeight}>
+	<circle fill="#228CFF" cx="8.5" cy="8.5" r="8.5"/>
+	<polygon fill="#FFFFFF" points="7.3,12.7 4.4,9.2 5.1,8.5 7.2,11 11.8,4.8 12.6,5.4 "/>
+</svg>

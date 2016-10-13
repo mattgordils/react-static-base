@@ -1,0 +1,34 @@
+{
+  "name": "common",
+  "description": "Common models and components for react/immutable",
+  "main": "index.js",
+  "authors": [
+    "Stu Kabakoff <stuart@compstak.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "es6"
+  ],
+  "homepage": "https://github.com/compstak/fed-common",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "ui": "compstak/fed-ui#>=12.0.0",
+    "services": "compstak/fed-services#>=12.3.0"
+  },
+  "_release": "0a389de8b5",
+  "_resolution": {
+    "type": "branch",
+    "branch": "f/new-landing-pages",
+    "commit": "0a389de8b58d5f63e8231f8cd21f4013b73f4839"
+  },
+  "_source": "git://github.com/compstak/fed-common.git",
+  "_target": "f/new-landing-pages",
+  "_originalSource": "compstak/fed-common"
+}

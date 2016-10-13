@@ -1,0 +1,23 @@
+<svg x="0px" y="0px" viewBox="0 0 15 13">
+<g>
+    <defs>
+        <path id="SVGID_1_" d="M9.5,6.5h4.1v1.6H9.5V6.5z M9.5,9.8h4.1v1.6H9.5V9.8z M13.6,4.9V3.2h-2.7v1.6H8.2V13H15V4.9H13.6z"/>
+    </defs>
+    <use xlink:href="#SVGID_1_"  overflow="visible" fill-rule="evenodd" clip-rule="evenodd"/>
+    <clipPath id="SVGID_2_">
+        <use xlink:href="#SVGID_1_"  overflow="visible"/>
+    </clipPath>
+    <rect x="3.4" y="-1.8" opacity="0.9" clip-path="url(#SVGID_2_)" width="16.4" height="19.8"/>
+</g>
+<g>
+    <defs>
+        <path id="SVGID_3_" d="M4.1,1.6h1.4v1.6H4.1V1.6z M4.1,4.9h1.4v1.6H4.1V4.9z M4.1,8.1h1.4v1.6H4.1V8.1z M1.4,8.1h1.4v1.6H1.4V8.1z
+             M1.4,4.9h1.4v1.6H1.4V4.9z M1.4,1.6h1.4v1.6H1.4V1.6z M4.1,0H0v13h1.4v-1.6h4.1V13h1.4V0H4.1z"/>
+    </defs>
+    <use xlink:href="#SVGID_3_"  overflow="visible" fill-rule="evenodd" clip-rule="evenodd"/>
+    <clipPath id="SVGID_4_">
+        <use xlink:href="#SVGID_3_"  overflow="visible"/>
+    </clipPath>
+    <rect x="-4.8" y="-5" opacity="0.9" clip-path="url(#SVGID_4_)" width="16.4" height="23"/>
+</g>
+</svg>

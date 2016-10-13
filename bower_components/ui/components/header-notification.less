@@ -1,0 +1,44 @@
+.header-notification {
+	background-color: @light-blue;
+	color: @white;
+	font-family: @font-gotham-book;
+	font-size: 12px;
+	letter-spacing: .02em;
+	z-index: @layer6;
+	width: 100%;
+	.clearfix();
+	position: relative;
+	padding: 13px 20px 15px;
+	box-sizing: border-box;
+	p {
+		float: left;
+		margin: 0 30px 0 0;
+		font-size: 13px;
+		color: @white;
+		a {
+			transition: border .2s;
+			color: @white;
+			border-bottom: 1px solid fade(@white, 50%);
+			padding-bottom: 2px;
+			&:hover {
+				border-bottom-color: @white;
+			}
+		}
+	}
+	.close {
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 17px 20px;
+		&:hover {
+			svg * {
+				fill: @white;
+			}
+		}
+		svg * {
+			transition: fill .2s;
+			fill: fade(@white, 70%);
+		}
+	}
+}

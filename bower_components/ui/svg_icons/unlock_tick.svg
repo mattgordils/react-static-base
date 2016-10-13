@@ -1,0 +1,6 @@
+<svg width="15px" height="11px" viewBox="0 0 15 11" enable-background="new 0 0 15 11">
+
+    <polyline class="js-tick" fill="none" stroke="#50B87F" stroke-linecap="round"
+              stroke-linejoin="round" stroke-miterlimit="10" points="
+	                                      1,6.083 4.942,10 14,1 "/>
+</svg>

@@ -1,0 +1,29 @@
+{
+  "name": "ui",
+  "authors": [
+    "CompStak <tech@compstak.com>"
+  ],
+  "description": "UI Components, fonts, styles",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "to kill",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/compstak/fed-ui",
+  "_release": "b35e8a2bfe",
+  "_resolution": {
+    "type": "branch",
+    "branch": "f/new-landing-pages",
+    "commit": "b35e8a2bfe214774a9beeb76585a4dc1c9ddbc37"
+  },
+  "_source": "git://github.com/compstak/fed-ui.git",
+  "_target": "f/new-landing-pages",
+  "_originalSource": "compstak/fed-ui"
+}
